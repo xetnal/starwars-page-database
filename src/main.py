@@ -192,7 +192,7 @@ def createVehicle():
     
     vehicles.save()
     
-    return jsonify(ship.serialize()), 201
+    return jsonify(vehicles.serialize()), 201
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
