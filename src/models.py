@@ -49,10 +49,10 @@ class People(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
     name = db.Column(db.String(255), nullable=False)  
     gender = db.Column(db.String(255))  
-    birth_year = db.Column(db.Integer, nullable=False)
+    birth_year = db.Column(db.String, nullable=False)
     height = db.Column(db.Integer, nullable=False)
     hair_color = db.Column(db.String(255)) 
-    eye_color : db.Column(db.String(255)) 
+    eye_color = db.Column(db.String(255)) 
     
 
     def save(self):
@@ -69,7 +69,7 @@ class People(db.Model):
     def serialize(self):
         return{
             'id': self.id,
-            'name': self.username,
+            'name': self.name,
             'gender': self.gender,
             'birth_year': self.birth_year,
             'height': self.height,

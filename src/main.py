@@ -52,8 +52,10 @@ def get_user_favorites(user_id):
 @app.route("/users", methods=['POST'])
 def create_user():
     user = Users()
+    user.username = request.json.get('username')
     user.email = request.json.get('email')
     user.password = request.json.get('password')
+    user.age = request.json.get('age')
     user.save()
     
     return jsonify(user.serialize()), 201
@@ -133,7 +135,7 @@ def createPerson():
   
     people.save()
     
-    return jsonify(person.serialize()), 201
+    return jsonify(people.serialize()), 201
 
 
 @app.route("/planets", methods=['GET'])
